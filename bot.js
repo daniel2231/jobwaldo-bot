@@ -50,7 +50,7 @@ function ProgrammersGet() {
 }
 
 function sendMessage() {
-  const channel = client.channels.cache.get("895184692821778465");
+  const channel = client.channels.cache.get("895633162963673099");
   for (let k = 0; k < newJobs.length; k++) {
     console.log("sending Image");
     let imageUrl = newJobs[k].company.logoUrl;
@@ -102,7 +102,7 @@ client.on("interactionCreate", async (interaction) => {
 
   const { commandName } = interaction;
   const channel = client.channels.cache.get(
-    (channel) => channel.id === "895184692821778465"
+    (channel) => channel.id === "895633162963673099"
   );
 
   if (commandName === "ping") {
