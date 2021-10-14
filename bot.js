@@ -1,7 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const request = require("request");
-const { token } = require("./config.json");
+const { token, channelID } = require("./config.json");
 const { MessageEmbed } = require("discord.js");
 
 // Create a new client instance
@@ -50,7 +50,7 @@ function ProgrammersGet() {
 }
 
 function sendMessage() {
-  const channel = client.channels.cache.get("895633162963673099");
+  const channel = client.channels.cache.get(channelID);
   for (let k = 0; k < newJobs.length; k++) {
     console.log("sending Image");
     let imageUrl = newJobs[k].company.logoUrl;
@@ -94,7 +94,8 @@ async function botFunction() {
 client.once("ready", () => {
   console.log("Ready!");
 
-  botFunction();
+    botFunction();
+    process.exit(1)
 });
 
 client.on("interactionCreate", async (interaction) => {
@@ -102,7 +103,7 @@ client.on("interactionCreate", async (interaction) => {
 
   const { commandName } = interaction;
   const channel = client.channels.cache.get(
-    (channel) => channel.id === "895633162963673099"
+    (channel) => channel.id === channelID
   );
 
   if (commandName === "ping") {
