@@ -95,7 +95,6 @@ client.once("ready", () => {
   console.log("Ready!");
 
     botFunction();
-    process.exit(1)
 });
 
 client.on("interactionCreate", async (interaction) => {
